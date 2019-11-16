@@ -2,13 +2,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+      {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Album example · Bootstrap</title>
-
+    <meta name="author" content="">
+    <meta name="generator" content="">
+    <title>Moaaz Afzal</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Bootstrap core CSS -->
 
@@ -35,24 +35,27 @@
   <body>
     <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Moaaz Afzal</a>
+  <a class="navbar-brand" href="{% url 'home' %}">Moaaz Afzal</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse " id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item ">
-        <a class="nav-link" href="#">Linkedin</a>
+        <a class="nav-link" href="https://www.linkedin.com/in/moaaz-afzal-455896177/">Linkedin</a>
       </li>
 
        <li class="nav-item">
-        <a class="nav-link" href="#">Medium</a>
+        <a class="nav-link" href="https://medium.com/@moaazafzal1111">Medium</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">Resume</a>
+        <a class="nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
+      </li>
+       <li class="nav-item">
+        <a class="nav-link" href="https://drive.google.com/open?id=11UzOGaEWYXK6Q4k0JhM5GxXVMUPPpKP9">Certificates</a>
       </li>
       <li class="nav-item">
 
@@ -81,9 +84,10 @@ I am a Unity Game Developer who loves to code and communicate, I enjoy talking w
 
       <div class="row">
 
-          {% for job in jobs.all  %}
+        {% for job in jobs.all  %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
+            <h2 align="center">{{job.title}}</h2>
             <img class="card mb-4 box-shadow" src="{{job.image.url}}" />
             <div class="card-body">
               <button type="button" class="btn btn-success">Download</button>
